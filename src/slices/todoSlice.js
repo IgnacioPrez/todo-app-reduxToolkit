@@ -23,7 +23,6 @@ const todoSlice = createSlice({
       return todoFound
     },
     updateTodo: (state, action) => {
-      console.log(action.payload)
       const { newTodo, id } = action.payload
       const foundTodo = state.find((el) => el.id === id)
       if (foundTodo) {
