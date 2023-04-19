@@ -1,9 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { saveToLocalStorage } from '../utilities/localStorage.function'
 
-const initialState = JSON.parse(window.localStorage.getItem('todo')) || [
-  { id: 1, todo: 'Escriba su todo mi raaay', completed: false }
-]
+const initialState = JSON.parse(window.localStorage.getItem('todo')) || []
 
 const todoSlice = createSlice({
   name: 'todo',
@@ -26,7 +24,7 @@ const todoSlice = createSlice({
       const { newTodo, id } = action.payload
       const foundTodo = state.find((el) => el.id === id)
       if (foundTodo) {
-        foundTodo.todo = newTodo
+        newTodo.todo ? foundTodo.todo = newTodo.todo : foundTodo.todo = newTodo
       }
     },
     completedTodo: (state, action) => {

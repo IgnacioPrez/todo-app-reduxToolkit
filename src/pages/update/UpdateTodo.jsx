@@ -12,7 +12,6 @@ const UpdateTodo = () => {
   const [newTodo, setNewTodo] = useState('')
   const navigate = useNavigate()
   const dispatch = useDispatch()
-
   const handleChange = (e) => {
     setNewTodo(e.target.value)
   }
@@ -24,6 +23,10 @@ const UpdateTodo = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    if (newTodo === '') {
+      window.alert('No se puede enviar vacio')
+      return
+    }
     dispatch(updateTodo({ newTodo, id }))
     navigate(PublicRoutes.HOME)
   }
