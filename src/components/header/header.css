@@ -7,6 +7,7 @@
     align-items: center;
     gap: 3px;
     font-size: 1.5rem;
+    flex-direction: column;
 }
 .header-container h1 {
     color: #5d648f;

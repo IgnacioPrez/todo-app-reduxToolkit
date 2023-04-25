@@ -1,4 +1,6 @@
 export const PublicRoutes = {
   HOME: '/',
-  UPDATE: 'update'
+  TODO: '/todo',
+  UPDATE: '/update',
+  POKEPAGE: '/pokemon'
 }

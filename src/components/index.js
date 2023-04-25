@@ -1,3 +1,6 @@
 export * from './add-task'
+export * from './card-pokemon'
 export * from './header'
+export * from './navbar'
+export * from './search-pokemon'
 export * from './tasks'
