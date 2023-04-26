@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { CardPokemon, Navbar, SearchPokemon } from '../../components'
 import './pokemon.css'
 import { getPokemon } from '../../utilities/functionForApi'
+import { Toaster, toast } from 'react-hot-toast'
 
 const PokemonPage = () => {
   const [pokemon, setPokemon] = useState([])
@@ -22,6 +23,10 @@ const PokemonPage = () => {
   const handlePokemonSubmit = (e) => {
     e.preventDefault()
     const { searchPokemon } = Object.fromEntries(new window.FormData(e.target))
+    if (search === '') {
+      toast.error('No such Pokemon exists🤡')
+      return
+    }
     setSearch(searchPokemon.toLocaleLowerCase())
   }
 
@@ -31,6 +36,7 @@ const PokemonPage = () => {
       <Navbar />
       <SearchPokemon handlePokemonSubmit={handlePokemonSubmit} />
       <CardPokemon {...pokemon} />
+      <Toaster position='bottom-center' reverseOrder={false} />
     </main>
   )
 }

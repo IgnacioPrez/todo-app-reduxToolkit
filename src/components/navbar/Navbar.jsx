@@ -23,6 +23,14 @@ const Navbar = () => {
         sx={{ background: 'transparent' }}
       >
         <BottomNavigationAction
+          label='Home'
+          value='/'
+          icon={<HomeIcon />}
+          onClick={() => {
+            setTimeout(navigate(PublicRoutes.HOME), 1500)
+          }}
+        />
+        <BottomNavigationAction
           value='todo'
           label='Todo'
           icon={<AssignmentIcon />}
@@ -36,14 +44,6 @@ const Navbar = () => {
           icon={<CatchingPokemonIcon />}
           onClick={() => {
             setTimeout(navigate(PublicRoutes.POKEPAGE), 1500)
-          }}
-        />
-        <BottomNavigationAction
-          label='Home'
-          value='/'
-          icon={<HomeIcon />}
-          onClick={() => {
-            setTimeout(navigate(PublicRoutes.HOME), 1500)
           }}
         />
       </BottomNavigation>
